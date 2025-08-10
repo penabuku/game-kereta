@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kereta 2D dengan Wesel Dua Arah & Gerbong</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="game" width="760" height="560"></canvas>
+  <div class="info">
+    <div><strong>Kontrol Kereta:</strong></div>
+    <div class="keys">
+      <span class="key">➡</span> Tambah kecepatan<br/>
+      <span class="key">⬅</span> Kurangi kecepatan / rem / mundur<br/>
+      <span class="key">⬆</span> Pilih jalur cabang (masuk wesel) saat dekat switch<br/>
+      <span class="key">⬇</span> Pilih jalur utama (keluar wesel) saat dekat switch<br/>
+    </div>
+    <div id="status"></div>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
