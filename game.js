@@ -362,5 +362,36 @@
     requestAnimationFrame(loop);
   }
 
+   const touchButtons = {
+    'ArrowLeft': document.getElementById('btn-left'),
+    'ArrowUp': document.getElementById('btn-up'),
+    'ArrowDown': document.getElementById('btn-down'),
+    'ArrowRight': document.getElementById('btn-right')
+  };
+
+  // Fungsi untuk set key state true saat sentuh/mouse down
+  function touchStartHandler(e) {
+    e.preventDefault();
+    const key = e.target.dataset.key;
+    if (key) keys[key] = true;
+  }
+  // Fungsi untuk set key state false saat sentuh/mouse up
+  function touchEndHandler(e) {
+    e.preventDefault();
+    const key = e.target.dataset.key;
+    if (key) keys[key] = false;
+  }
+
+  // Pasang event listener untuk setiap tombol sentuh
+  Object.entries(touchButtons).forEach(([key, btn]) => {
+    btn.dataset.key = key;
+    btn.addEventListener('touchstart', touchStartHandler);
+    btn.addEventListener('touchend', touchEndHandler);
+    btn.addEventListener('mousedown', touchStartHandler);
+    btn.addEventListener('mouseup', touchEndHandler);
+    btn.addEventListener('mouseleave', touchEndHandler);
+  });
+
+
   loop();
 })();
